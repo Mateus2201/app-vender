@@ -13,11 +13,13 @@ export default function Layout() {
       <Stack.Screen name="index" options={{ title: 'Página Inicial' }} />
       <Stack.Screen name="client" options={{ headerShown }} />
       <Stack.Screen name="home" options={{ headerShown }} />
-      <Stack.Screen name="products" options={{ headerShown }} />
+      <Stack.Screen name="procducts" options={{ headerShown }} />
       <Stack.Screen name="report" options={{ headerShown }} />
       <Stack.Screen name="sales" options={{ headerShown }} />
       <Stack.Screen name="sync" options={{ headerShown }} />
       <Stack.Screen name="box" options={{ headerShown }} />
+      <Stack.Screen name="new-client" options={{ headerShown }} />
+      <Stack.Screen name="new-products" options={{ headerShown }} />
     </Stack>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, TextInput, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
+import Pluscircleo from '@expo/vector-icons/AntDesign';
 
 const clients = [
     { id: '1', name: 'John Doe', number: '123-456-7890', email: 'john@example.com' },
@@ -20,8 +21,8 @@ export default function Client() {
                 client.name.toLowerCase().includes(text.toLowerCase()) ||
                 client.number.includes(text) ||
                 client.email.toLowerCase().includes(text.toLowerCase())
-            );
-            setFilteredClients(filtered);
+            )
+            setFilteredClients(filtered)
             return
         }
 
@@ -40,15 +41,15 @@ export default function Client() {
         </TouchableOpacity>
     );
 
-    return (
-        <SafeAreaView style={styles.container}>
+    return <SafeAreaView style={styles.container}>
             <View style={styles.filterContainer}>
                 <TextInput
-                    style={styles.input}
+                    style={styles.inputContainer}
                     placeholder="Search by name, number or email"
                     value={search}
                     onChangeText={handleSearch}
                 />
+
             </View>
             <View style={styles.containerClients}>
                 <FlatList
@@ -57,8 +58,10 @@ export default function Client() {
                     keyExtractor={item => item.id}
                 />
             </View>
+            <TouchableOpacity style={styles.iconContainer} onPress={() => router.push('/new-client')}>
+                <Pluscircleo name="plus" size={40} color="#858EB5" />
+            </TouchableOpacity>
         </SafeAreaView>
-    );
 }
 
 const styles = StyleSheet.create({
@@ -68,13 +71,32 @@ const styles = StyleSheet.create({
     },
     filterContainer: {
         marginBottom: 10,
-    },
-    input: {
+        flexDirection: 'row',
         height: 40,
-        borderColor: '#ccc',
+
+    },
+    inputContainer: {
+        height: 40,
+        width: '100%',
+        borderColor: '#858EB5',
         borderWidth: 1,
         borderRadius: 5,
         paddingHorizontal: 10,
+        marginRight: 5,
+    },
+    iconContainer: {
+        width: '9%',
+        height: 60,
+        width: 60,
+        bottom: 30,
+        right: 30,
+        position: 'absolute',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderColor: '#858EB5',
+        borderWidth: 2,
+        borderRadius: 50,
+        marginRight: 5,
     },
     item: {
         padding: 10,
